@@ -3,6 +3,7 @@ package desafio.poo.view;
 import desafio.poo.controler.*;
 import desafio.poo.model.*;
 
+import com.restfb.BinaryAttachment;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -92,30 +93,31 @@ public class Main {
 		}
 		Scanner sc = new Scanner(System.in).useDelimiter("\\n");
 		
-		String path = "C:\\Users\\lucas\\eclipse-workspace\\Airbnb_GraphGenerator\\";
+		System.out.println("Hora de compartilhar o gráfico... ");
 		
-		String grafico = "grafico.jpeg";
+		String caminho = "C:\\Users\\lucas\\eclipse-workspace\\Airbnb_GraphGenerator\\";
+		
+		String grafico = gerador.getarqg();
 		
 		System.out.println("Insira seu token de acesso ao facebook: ");
 		String token = sc.next();
-		System.out.println(token);
+	
 		System.out.println("Escreva seu post: ");
 		String message = sc.next();
-		System.out.println(message);
+		
 		System.out.println("Insira o ID do usuario que deseja marcar: ");
 		String tagID = sc.next();
-		System.out.println(tagID);
+		
 		System.out.println("Insira o nome do usuario que deseja marcar: ");
 		String tagText = sc.next();
-		System.out.println(tagText);
 		
-		System.out.println(path + grafico);
+		System.out.println(caminho + grafico);
 		FaceTag photoTag = new FaceTag(tagID, tagText);
 		
 		
-		
-		Face.postarNoFb(token, path, grafico, message, photoTag);
 		System.out.println("Postando...");
+		Face.postarNoFb(token, caminho, grafico, message, photoTag);
+		System.out.println("Encerrando Programa.");
 
 		
 }

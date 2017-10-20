@@ -21,6 +21,8 @@ import org.jfree.data.general.DefaultPieDataset;
 
 
 public class Gerador_Grafico {
+	private String arqG;
+	
 	
 	
 	private CategoryDataset criarDataSet(ArrayList<Bairro> bairros) {
@@ -82,8 +84,9 @@ public class Gerador_Grafico {
 		JFreeChart grafico = this.createBarChart(dataSet);
 		
 		
-	
-		File barChartt = new File("grafico.jpeg");
+		arqG = "grafico.jpeg";
+		File barChartt = new File(arqG);
+		
 		try {
 			ChartUtilities.saveChartAsJPEG(barChartt, grafico, 1200, 800);
 		} catch (IOException e) {
@@ -98,10 +101,11 @@ public class Gerador_Grafico {
 		JFreeChart grafico = this.createPieChart(bairros);
 		
 		
-	
-		File barChartt = new File("grafico2.jpeg");
+		arqG = "grafico2.jpeg";
+		File pizzaChartt = new File(arqG);
+		
 		try {
-			ChartUtilities.saveChartAsJPEG(barChartt, grafico, 1200, 800);
+			ChartUtilities.saveChartAsJPEG(pizzaChartt, grafico, 1200, 800);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -115,15 +119,20 @@ public class Gerador_Grafico {
 		JFreeChart grafico = create3DChart(dataSet);
 		
 		
-	
-		File barChartt = new File("grafico3.jpeg");
+		arqG = "grafico3.jpeg";
+		File bar3dChartt = new File(arqG );
+		
 		try {
-			ChartUtilities.saveChartAsJPEG(barChartt, grafico, 1200, 800);
+			ChartUtilities.saveChartAsJPEG(bar3dChartt, grafico, 1200, 800);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public String getarqg() {
+		return arqG;
 	}
 	
 	
